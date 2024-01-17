@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* body{
+        overflow: hidden;
+    }    */
+
+        #box {
+            height: 100vh;
+            width: 100%;
+            background-image: url(sky.jpg);
+            background-size: cover;
+            background-position: center;
+            /* animation: myanimation; */
+            position: relative;
+            overflow-x: hidden;
+            /* z-index: 20; */
+        }
+
+        #road {
+            height: 200px;
+            width: 500%;
+            display: block;
+            position: absolute;
+            background-image: url(road.jpg);
+            animation: myanimation;
+            left: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            animation: road 7s linear infinite;
+        }
+
+        /* @keyframes road{ 
+    100%{
+        transform: translateX(-3400px);
+    }
+} */
+
+        #city {
+            height: 250px;
+            width: 500%;
+            background-image: url(city.png);
+            position: absolute;
+            bottom: 200px;
+            left: 0;
+            right: 0;
+            display: block;
+            z-index: 1;
+            animation-timing-function: ease-in-out;
+            background-repeat: repeat-x;
+            animation: city 5s linear infinite;
+        }
+
+        #car {
+            width: 400px;
+            left: 50%;
+            bottom: 100px;
+            transform: translateX(-50%);
+            position: absolute;
+            z-index: 2;
+
+        }
+
+        #car img {
+            width: 100%;
+            animation: shake linear 15s infinite;
+
+        }
+
+        #wheel {
+            left: 50%;
+            bottom: 190px;
+            transform: translateX(-50%);
+            position: absolute;
+            z-index: 2;
+        }
+
+        #wheel img {
+            width: 72px;
+            height: 72px;
+            animation: wheel 4s linear infinite;
+        }
+
+        .back-wheel {
+            left: -164px;
+            position: absolute;
+        }
+
+        .front-wheel {
+            left: 80px;
+            position: absolute;
+        }
+
+        @keyframes city {
+            100% {
+                transform: translateX(-1400px);
+            }
+        }
+
+        @keyframes road {
+            100% {
+                transform: translateX(-3400px);
+            }
+        }
+
+        /* @keyframes shake{
+    0%{ 
+        transform: translatey(-5px);
+    } 
+
+    50%{
+        transform: translatey(5px);
+    }
+    100%{
+        transform: translatey(-5px);
+    }
+ }   */
+
+
+        @keyframes car {
+            100% {
+                transform: translatey(-1px);
+            }
+
+            50% {
+                transform: translatey(-1px);
+            }
+
+            0% {
+                transform: translatey(-1px);
+            }
+        }
+
+        @keyframes wheel {
+            100% {
+                transform: rotate(1000deg);
+            }
+        }
+        #sound{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <audio controls autoplay="true" id="sound">
+
+        <source src="Sound.mp3">
+    </audio>
+
+    <div id="box">
+
+        <div id="road"></div>
+
+        <div id="city"></div>
+
+        <div id="car">
+            <img src="car.png">
+        </div>
+
+        <div id="wheel">
+            <img src="wheel.png" class="back-wheel">
+            <img src="wheel.png" class="front-wheel">
+        </div>
+
+    </div>
+    <script>
+        // document.getElementById("sound").play();
+        // // // var audio = new Audio('Sound.mp3');
+        // // // audio.play();
+
+        // var audio = document.createElement("AUDIO")
+        // document.body.appendChild(audio);
+        // audio.src = "./Sound.mp3"
+
+        document.body.addEventListener("mousemove", function () {
+            setTimeout(() => {
+                document.getElementById("sound").play();
+            }, 2000);
+        })
+
+
+
+    </script>
+</body>
+
+</html>
